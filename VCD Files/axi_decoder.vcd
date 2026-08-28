@@ -1,0 +1,44 @@
+$date
+	Sun Aug  2 16:42:42 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_axi_decoder $end
+$var wire 1 ! rom_sel $end
+$var wire 1 " ram_sel $end
+$var wire 1 # apb_sel $end
+$var reg 32 $ addr [31:0] $end
+$scope module DUT $end
+$var wire 32 % addr [31:0] $end
+$var wire 1 ! rom_sel $end
+$var wire 1 " ram_sel $end
+$var wire 1 # apb_sel $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b1000000000000 %
+b1000000000000 $
+0#
+0"
+1!
+$end
+#10000
+0!
+1"
+b10000000000000000000000000000 $
+b10000000000000000000000000000 %
+#20000
+0"
+1#
+b1000000000000000000000000000000 $
+b1000000000000000000000000000000 %
+#50000
