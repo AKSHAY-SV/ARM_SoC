@@ -1,0 +1,22 @@
+VCD info: dumpfile apb_subsystem.vcd opened for output.
+
+========================
+GPIO TEST
+========================
+READ  Addr=00001004 Data=000000ff
+READ  Addr=00001000 Data=00000000
+GPIO PASS
+
+========================
+TIMER TEST
+========================
+TIMER IRQ GENERATED
+READ  Addr=00002000 Data=0000000a
+READ  Addr=00002004 Data=00000000
+READ  Addr=00002008 Data=00000000
+READ  Addr=0000200c Data=00000001
+
+========================
+APB SUBSYSTEM PASS
+========================
+tb/tb_apb_subsystem.v:211: $finish called at 545000 (1ps)

@@ -1,0 +1,5 @@
+VCD info: dumpfile timer.vcd opened for output.
+LOAD=10
+ENABLE TIMER
+IRQ GENERATED
+tb/tb_timer_apb.v:91: $finish called at 265000 (1ps)

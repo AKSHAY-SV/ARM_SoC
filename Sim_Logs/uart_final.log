@@ -1,0 +1,2 @@
+VCD info: dumpfile uart_final.vcd opened for output.
+tb/uart_final_tb.v:126: $finish called at 3395000 (1ps)

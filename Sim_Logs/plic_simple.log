@@ -1,0 +1,4 @@
+VCD info: dumpfile plic.vcd opened for output.
+CPU IRQ GENERATED
+IRQ CLEARED
+tb/tb_plic_simple.v:134: $finish called at 205000 (1ps)

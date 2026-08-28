@@ -1,0 +1,4 @@
+VCD info: dumpfile ram.vcd opened for output.
+ADDR=00000000 DATA=deadbeef
+ADDR=00000004 DATA=deadbeef
+tb/tb_ram.v:80: $finish called at 65000 (1ps)

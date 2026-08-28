@@ -1,0 +1,5 @@
+VCD info: dumpfile axi_decoder.vcd opened for output.
+ROM=1 RAM=0 APB=0
+ROM=0 RAM=1 APB=0
+ROM=0 RAM=0 APB=1
+tb/tb_axi_decoder.v:67: $finish called at 50000 (1ps)

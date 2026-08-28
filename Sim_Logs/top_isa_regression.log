@@ -1,0 +1,146 @@
+VCD info: dumpfile top_isa_regression.vcd opened for output.
+
+============================================================
+   RV32I + RV32M + MAC  Full System Simulation
+============================================================
+   Cyc          PC       INSTR
+  cyc=  0  PC=0x00000004  INSTR=0x00a00113
+  cyc=  1  PC=0x00000008  INSTR=0xffb00193
+  cyc=  2  PC=0x0000000c  INSTR=0x00208233
+  cyc=  3  PC=0x00000010  INSTR=0x402082b3
+  cyc=  4  PC=0x00000014  INSTR=0x0020f333
+  cyc=  5  PC=0x00000018  INSTR=0x0020e3b3
+  cyc=  6  PC=0x0000001c  INSTR=0x0020c433
+  cyc=  7  PC=0x00000020  INSTR=0x001124b3
+  cyc=  8  PC=0x00000024  INSTR=0x00113533
+  cyc=  9  PC=0x00000028  INSTR=0x002115b3
+  cyc= 10  PC=0x0000002c  INSTR=0x0025d633
+  cyc= 11  PC=0x00000030  INSTR=0x4021d6b3
+  cyc= 12  PC=0x00000034  INSTR=0x06408713
+  cyc= 13  PC=0x00000038  INSTR=0x00c0f793
+  cyc= 14  PC=0x0000003c  INSTR=0x0100e813
+  cyc= 15  PC=0x00000040  INSTR=0x0090c893
+  cyc= 16  PC=0x00000044  INSTR=0x0001a913
+  cyc= 17  PC=0x00000048  INSTR=0x00209993
+  cyc= 18  PC=0x0000004c  INSTR=0x0029da13
+  cyc= 19  PC=0x00000050  INSTR=0x4011da93
+  cyc= 20  PC=0x00000054  INSTR=0x00001b37
+  cyc= 21  PC=0x00000058  INSTR=0x00000b97
+  cyc= 22  PC=0x0000005c  INSTR=0x00102023
+  cyc= 23  PC=0x00000060  INSTR=0x00202223
+  cyc= 24  PC=0x00000064  INSTR=0x00002c03
+  cyc= 25  PC=0x00000068  INSTR=0x00402c83
+  cyc= 26  PC=0x0000006c  INSTR=0x00100423
+  cyc= 27  PC=0x00000070  INSTR=0x00800d03
+  cyc= 28  PC=0x00000074  INSTR=0x00301623
+  cyc= 29  PC=0x00000078  INSTR=0x00c01d83
+  cyc= 30  PC=0x0000007c  INSTR=0x00804e03
+  cyc= 31  PC=0x00000080  INSTR=0x00c05e83
+  cyc= 32  PC=0x00000084  INSTR=0x00108463
+  cyc= 33  PC=0x00000088  INSTR=0x06300f13
+  cyc= 34  PC=0x0000008c  INSTR=0x00100f13
+  cyc= 35  PC=0x0000008c  INSTR=0x00100f13
+  cyc= 36  PC=0x00000090  INSTR=0x00209463
+  cyc= 37  PC=0x00000094  INSTR=0x06300f13
+  cyc= 38  PC=0x00000098  INSTR=0x00200f13
+  cyc= 39  PC=0x00000098  INSTR=0x00200f13
+  cyc= 40  PC=0x0000009c  INSTR=0x00114463
+  cyc= 41  PC=0x000000a0  INSTR=0x06300f13
+  cyc= 42  PC=0x000000a4  INSTR=0x00300f13
+  cyc= 43  PC=0x000000a4  INSTR=0x00300f13
+  cyc= 44  PC=0x000000a8  INSTR=0x0020d463
+  cyc= 45  PC=0x000000ac  INSTR=0x06300f13
+  cyc= 46  PC=0x000000b0  INSTR=0x00400f13
+  cyc= 47  PC=0x000000b0  INSTR=0x00400f13
+  cyc= 48  PC=0x000000b4  INSTR=0x00800fef
+  cyc= 49  PC=0x000000b8  INSTR=0x06300f13
+  cyc= 50  PC=0x000000bc  INSTR=0x00500f13
+  cyc= 51  PC=0x000000bc  INSTR=0x00500f13
+  cyc= 52  PC=0x000000c0  INSTR=0x0c800f67
+  cyc= 53  PC=0x000000c4  INSTR=0x06300f13
+  cyc= 54  PC=0x000000c8  INSTR=0x00600f13
+  cyc= 55  PC=0x000000c8  INSTR=0x00600f13
+  cyc= 56  PC=0x000000cc  INSTR=0x02208233
+  cyc= 57  PC=0x000000d0  INSTR=0x022092b3
+  cyc= 58  PC=0x000000d4  INSTR=0x02224333
+  cyc= 59  PC=0x000000d8  INSTR=0x022253b3
+  cyc= 60  PC=0x000000dc  INSTR=0x02126433
+  cyc= 61  PC=0x000000e0  INSTR=0x022274b3
+  cyc= 62  PC=0x000000e4  INSTR=0x0000100b
+  cyc= 63  PC=0x000000e8  INSTR=0x0020850b
+  cyc= 64  PC=0x000000ec  INSTR=0x0010858b
+  cyc= 65  PC=0x000000f0  INSTR=0x00000013
+  cyc= 66  PC=0x000000f4  INSTR=0x00000013
+  cyc= 67  PC=0x000000f8  INSTR=0x00000013
+  cyc= 68  PC=0x000000fc  INSTR=0x00000013
+  cyc= 69  PC=0x00000100  INSTR=0x00000013
+  cyc= 70  PC=0x00000104  INSTR=0x00000013
+  cyc= 71  PC=0x00000108  INSTR=0x00000013
+  cyc= 72  PC=0x0000010c  INSTR=0x00000013
+  cyc= 73  PC=0x00000110  INSTR=0x00000013
+  cyc= 74  PC=0x00000114  INSTR=0x00000013
+  cyc= 75  PC=0x00000118  INSTR=0x00000013
+  cyc= 76  PC=0x0000011c  INSTR=0x00000013
+  cyc= 77  PC=0x00000120  INSTR=0x00000013
+  cyc= 78  PC=0x00000124  INSTR=0x00000013
+  cyc= 79  PC=0x00000128  INSTR=0x00000013
+
+------- RV32I Arithmetic -------
+  PASS  x1  ADDI x0,15=15                         got=15 (0x0000000f)
+  PASS  x2  ADDI x0,10=10                         got=10 (0x0000000a)
+  PASS  x3  ADDI x0,-5                            got=-5 (0xfffffffb)
+  PASS  x7  OR   x1|x2=15                         got=15 (0x0000000f)
+  PASS  x12 SRL  10240>>10=10                     got=10 (0x0000000a)
+  PASS  x13 SRA  -5>>10=-1                        got=-1 (0xffffffff)
+
+------- Immediate ALU -------
+  PASS  x14 ADDI x1+100=115                       got=115 (0x00000073)
+  PASS  x15 ANDI x1&12=12                         got=12 (0x0000000c)
+  PASS  x16 ORI  x1|16=31                         got=31 (0x0000001f)
+  PASS  x17 XORI x1^9=6                           got=6 (0x00000006)
+  PASS  x18 SLTI -5<0=1                           got=1 (0x00000001)
+  PASS  x19 SLLI 15<<2=60                         got=60 (0x0000003c)
+  PASS  x20 SRLI 60>>2=15                         got=15 (0x0000000f)
+  PASS  x21 SRAI -5>>1=-3                         got=-3 (0xfffffffd)
+
+------- LUI / AUIPC -------
+  PASS  x22 LUI  1->0x1000                        got=4096 (0x00001000)
+  PASS  x23 AUIPC PC=0x58+0                       got=88 (0x00000058)
+
+------- Load / Store -------
+  PASS  x24 LW   dmem[0]=15                       got=15 (0x0000000f)
+  PASS  x25 LW   dmem[4]=10                       got=10 (0x0000000a)
+  PASS  x26 LB   dmem[8]=15                       got=15 (0x0000000f)
+  PASS  x27 LH   dmem[12]=-5                      got=-5 (0xfffffffb)
+  PASS  x28 LBU  dmem[8]=15                       got=15 (0x0000000f)
+  FAIL  x29 LHU  dmem[12]=65531                   got=-5 (0xfffffffb)  exp=65531 (0x0000fffb)
+
+------- Branches -------
+  PASS  x30 final=6 all branches taken            got=6 (0x00000006)
+
+------- JAL / JALR -------
+  PASS  x31 JAL  link=0xB8                        got=184 (0x000000b8)
+
+------- RV32M -------
+  PASS  x4  MUL  15*10=150                        got=150 (0x00000096)
+  PASS  x5  MULH upper32=0                        got=0 (0x00000000)
+  PASS  x6  DIV  150/10=15                        got=15 (0x0000000f)
+  PASS  x7  DIVU 150/10=15                        got=15 (0x0000000f)
+  PASS  x8  REM  150 rem 15=0                     got=0 (0x00000000)
+  PASS  x9  REMU 150 rem 10=0                     got=0 (0x00000000)
+
+------- MAC -------
+  PASS  x10 MAC  0+15*10=150                      got=150 (0x00000096)
+  PASS  x11 MAC  150+15*15=375                    got=375 (0x00000177)
+  PASS  acc final=375                             got=375 (0x00000177)
+
+------- Data Memory -------
+  PASS  dmem[0] SW x1=15                          got=15 (0x0000000f)
+  PASS  dmem[4] SW x2=10                          got=10 (0x0000000a)
+
+============================================================
+  TOTAL: 34 PASSED   1 FAILED
+  SOME TESTS FAILED - Check waveforms above
+============================================================
+
+tb/tb.v:226: $finish called at 816000 (1ps)

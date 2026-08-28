@@ -1,0 +1,4 @@
+VCD info: dumpfile apb_interconnect.vcd opened for output.
+GPIO_SEL=0 TIMER_SEL=0 DATA=deadbeef
+GPIO_SEL=1 TIMER_SEL=0 DATA=aaaa5555
+tb/tb_apb_interconnect.v:81: $finish called at 40000 (1ps)

@@ -1,0 +1,5 @@
+VCD info: dumpfile spi.vcd opened for output.
+SPI TRANSFER COMPLETE
+READ Addr=00000004 Data=000000a5
+READ Addr=0000000c Data=00000002
+tb/tb_spi_master_apb.v:151: $finish called at 365000 (1ps)
