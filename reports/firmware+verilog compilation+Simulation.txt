@@ -1,0 +1,76 @@
+=== [1/3] Generating firmware (boot_rom.hex) ===
+OK: 372 instructions, 512 words total -> /home/akshay_srikrishnan/ARM_SoC/Complete_TB/tools/../boot_rom.hex
+=== [2/3] Compiling with Icarus Verilog ===
+python3 tools/asm_rv32i.py
+OK: 372 instructions, 512 words total -> /home/akshay_srikrishnan/ARM_SoC/Complete_TB/tools/../boot_rom.hex
+iverilog -g2012 -o ../Complete_Simulation/soc_tb.vvp -I ../ARM_SoC/rtl soc_tb.sv uart_bfm.sv spi_bfm.sv coverage_model.sv cpu_monitor.sv scoreboard_apb.sv ../ARM_SoC/rtl/soc_top.v ../ARM_SoC/rtl/reset_sync.v ../ARM_SoC/rtl/Data_Path.v ../ARM_SoC/rtl/pc.v ../ARM_SoC/rtl/control_unit.v ../ARM_SoC/rtl/imm_gen.v ../ARM_SoC/rtl/reg_file.v ../ARM_SoC/rtl/alu.v ../ARM_SoC/rtl/mac_unit.v ../ARM_SoC/rtl/inst_mem.v ../ARM_SoC/rtl/data_mem.v ../ARM_SoC/rtl/apb_subsystem.v ../ARM_SoC/rtl/apb_interconnect.v ../ARM_SoC/rtl/gpio_apb.v ../ARM_SoC/rtl/timer_apb.v ../ARM_SoC/rtl/spi_master_apb.v ../ARM_SoC/rtl/plic_simple.v ../ARM_SoC/rtl/apb_uart_wrapper.v ../ARM_SoC/rtl/uart_final.v ../ARM_SoC/rtl/apb_uart.v ../ARM_SoC/rtl/uart_regs.v ../ARM_SoC/rtl/uart_top.v ../ARM_SoC/rtl/baud_gen.v ../ARM_SoC/rtl/uart_tx.v ../ARM_SoC/rtl/uart_rx.v
+spi_bfm.sv:134: warning: System task ($error) cannot be synthesized in an always_ff process.
+spi_bfm.sv:137: warning: System task ($error) cannot be synthesized in an always_ff process.
+spi_bfm.sv:143: warning: System task ($error) cannot be synthesized in an always_ff process.
+scoreboard_apb.sv:54: warning: System task ($error) cannot be synthesized in an always_ff process.
+=== [3/3] Running simulation ===
+python3 tools/asm_rv32i.py
+OK: 372 instructions, 512 words total -> /home/akshay_srikrishnan/ARM_SoC/Complete_TB/tools/../boot_rom.hex
+iverilog -g2012 -o ../Complete_Simulation/soc_tb.vvp -I ../ARM_SoC/rtl soc_tb.sv uart_bfm.sv spi_bfm.sv coverage_model.sv cpu_monitor.sv scoreboard_apb.sv ../ARM_SoC/rtl/soc_top.v ../ARM_SoC/rtl/reset_sync.v ../ARM_SoC/rtl/Data_Path.v ../ARM_SoC/rtl/pc.v ../ARM_SoC/rtl/control_unit.v ../ARM_SoC/rtl/imm_gen.v ../ARM_SoC/rtl/reg_file.v ../ARM_SoC/rtl/alu.v ../ARM_SoC/rtl/mac_unit.v ../ARM_SoC/rtl/inst_mem.v ../ARM_SoC/rtl/data_mem.v ../ARM_SoC/rtl/apb_subsystem.v ../ARM_SoC/rtl/apb_interconnect.v ../ARM_SoC/rtl/gpio_apb.v ../ARM_SoC/rtl/timer_apb.v ../ARM_SoC/rtl/spi_master_apb.v ../ARM_SoC/rtl/plic_simple.v ../ARM_SoC/rtl/apb_uart_wrapper.v ../ARM_SoC/rtl/uart_final.v ../ARM_SoC/rtl/apb_uart.v ../ARM_SoC/rtl/uart_regs.v ../ARM_SoC/rtl/uart_top.v ../ARM_SoC/rtl/baud_gen.v ../ARM_SoC/rtl/uart_tx.v ../ARM_SoC/rtl/uart_rx.v
+spi_bfm.sv:134: warning: System task ($error) cannot be synthesized in an always_ff process.
+spi_bfm.sv:137: warning: System task ($error) cannot be synthesized in an always_ff process.
+spi_bfm.sv:143: warning: System task ($error) cannot be synthesized in an always_ff process.
+scoreboard_apb.sv:54: warning: System task ($error) cannot be synthesized in an always_ff process.
+vvp ../Complete_Simulation/soc_tb.vvp
+VCD info: dumpfile ../Complete_Simulation/soc_tb.vcd opened for output.
+INFO: Boot released at 155000, polling firmware mailbox
+INFO: Injecting UART RX bytes 0xAA, 0x55 at 1045000
+INFO: UART RX injection complete at 3315000
+INFO: Checkpoint 2 reached at 14595000
+PASS: GPIO pin sequence observed (5 transitions total)
+INFO: Checkpoint 3 reached at 37115000
+INFO: Checkpoint 4 reached at 63405000
+PASS: UART TX stream 'H','I','!' received (3 bytes total)
+INFO: Checkpoint 5 reached at 95655000
+INFO: Checkpoint 6 reached at 130205000
+PASS: SPI MOSI 0xA5/0x5A matched, 2 transfer(s)
+PASS: SPI RXDATA = 0x00 (MISO path verified)
+INFO: Checkpoint 7 reached at 164985000
+PASS: PLIC pending set+cleared, cpu_irq pulsed, regs idle
+INFO: UART stop-bit-error frame (0x33, low stop) injected at 170115000
+INFO: Checkpoint 8 reached at 178035000
+INFO: Firmware result word = 0x5a5a5a5a
+PASS: Firmware self-check result 0x5A5A5A5A
+SCOREBOARD: PASS - all 36 APB transactions matched expected
+
+=== Functional Coverage: 29/29 hit_bins (100.0%) ===
+
+=== Functional Coverage: 29/29 hit_bins (100.0%) ===
+
+=== CPU Monitor Report ===
+Total Instructions Executed: 13431
+Arithmetic Instructions:     38
+Logical Instructions:        0
+Shift Instructions:          0
+Load Instructions:           34
+Store Instructions:          45
+Branch Instructions:         4368
+Jump Instructions:           4351
+Immediate Instructions:      4590
+
+Hazard Statistics:
+  Load-Use Hazards:   6
+  Control Hazards:    4360
+  Data Hazards:       0
+  Stall Cycles:       6
+  Flush Cycles:       4360
+
+Forwarding Statistics:
+  EX->EX:    0
+  EX->MEM:   0
+  MEM->WB:   0
+
+Branch Statistics:
+  Taken:         4368
+  Not Taken:     0
+  Mispredicted:  0
+=============================
+INFO: Simulation end at 178035000
+soc_tb.sv:584: $finish called at 178035000 (1ps)
+
+=== Regression run complete. See ../Complete_Simulation/ for waveforms and report. ===
