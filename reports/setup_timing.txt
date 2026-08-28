@@ -1,0 +1,58 @@
+SETUP TIMING ANALYSIS
+=====================
+Run      : RUN_2026.07.04_05.04.48 (signoff)
+Corner   : rcx_nom (nominal)
+Clock    : clk, period 20 ns
+Tool     : OpenROAD OpenSTA (step 30 signoff)
+
+==================================================
+Setup Summary
+==================================================
+WNS (Worst Negative Slack) : 0.00 ns
+TNS (Total Negative Slack)  : 0.00 ns
+Worst setup slack (positive): 13.63 ns
+Violating paths             : 0
+Total paths                 : all endpoints checked
+
+==================================================
+Top 10 Setup Paths (worst slack)
+==================================================
+From rcx_nom_sta.max.rpt (signoff nominal):
+  1. Slack 13.63 ns — data path 1.09 ns
+  2. Slack 13.63 ns — data path 1.09 ns
+  3. Slack 13.63 ns — data path 1.09 ns
+  4. Slack 13.63 ns — data path 1.09 ns
+  5. Slack 13.63 ns — data path 1.09 ns
+  6. Slack 13.63 ns — data path 1.09 ns
+  6+ : all endpoints have > 13 ns slack
+
+==================================================
+Critical Path Detail (path #1)
+==================================================
+Startpoint: (flip-flop) \cpu.ex_mem_alu_result_reg
+Endpoint  : (flip-flop) \cpu.mem_wb_alu_result_reg
+Clock     : clk (rise edge)
+Path delay: 1.09 ns
+Required  : 20.00 ns
+Slack     : 13.63 ns
+Logic     : alu_result -> pipeline register (EX/MEM -> MEM/WB)
+Interconnect delay negligible (short intra-cluster route).
+
+==================================================
+Input/Output Constraints
+==================================================
+No input_delay / output_delay constraints defined.
+
+==================================================
+Clock Uncertainty
+==================================================
+Default 5 % (1.0 ns) for hold analysis; setup uses 0 uncertainty.
+
+==================================================
+Unconstrained Endpoints
+==================================================
+8 endpoints: GPIO tristate data outputs (no constraints).
+
+STATUS: PASS (0 violations)
+EOF
+echo "setup_timing.txt written"

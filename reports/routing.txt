@@ -1,0 +1,140 @@
+================================================================================
+ROUTING REPORT
+================================================================================
+Run: RUN_2026.07.04_05.04.48 (completed signoff)
+Design: soc_top (ARM_SoC RV32IM)
+PDK: sky130A / sky130_fd_sc_hd
+DEF: /home/akshay_srikrishnan/OpenLane/designs/rv32im_soc/runs/
+     RUN_2026.07.04_05.04.48/results/final/def/soc_top.def
+
+================================================================================
+ROUTING COMPLETION
+================================================================================
+Global Routing:  COMPLETE
+  FastRoute (step 15): PASS - no overflow iterations needed
+  Global routing congestion: None reported (design is small)
+
+Detailed Routing: COMPLETE
+  TritonRoute (step 18): PASS
+  Detailed routing completion: 100%
+
+Final DEF: /home/akshay_srikrishnan/OpenLane/designs/rv32im_soc/runs/
+           RUN_2026.07.04_05.04.48/results/final/def/soc_top.def
+
+================================================================================
+NET STATISTICS
+================================================================================
+Total nets (NETS section in DEF): 173
+  Special nets (SPECIALNETS): 2 (clk, power/ground)
+  Signal nets: 171
+
+Wire length CSV entries: 173 (including special nets)
+Total wire length (HPWL): 2,244 µm
+Total vias: 907
+
+Longest nets (top 5):
+  clknet_1_1__leaf_clk: 143.19 µm
+  clknet_1_0__leaf_clk: 125.22 µm
+  _078_: 109.70 µm
+  net1: 101.00 µm
+  _079_: 99.36 µm
+
+Wire length distribution:
+  Average net length: ~13 µm
+  Max net length: 143 µm (clock leaf)
+  Min net length: ~0.1 µm (local interconnects)
+
+Unrouted nets: 0 (all 173 nets routed)
+
+================================================================================
+DRC VIOLATIONS (Routing-related)
+================================================================================
+TritonRoute violations: 0
+Short violations: 0
+Metal spacing (MetSpc): 0
+Off-grid violations: 0
+Min-hole violations: 0
+Other violations: 0
+Magic DRC violations: 0
+KLayout DRC violations: 0 (not run in this flow)
+
+Total DRC violations: 0
+
+================================================================================
+ANTENNA VIOLATIONS
+================================================================================
+Pin antenna violations: 0
+Net antenna violations: 0
+Antenna violators report: EMPTY (0 bytes)
+Antenna repair: Not triggered (0 violations)
+
+================================================================================
+METAL LAYER USAGE (from metrics.csv)
+================================================================================
+Layer 1 (M1):  0.00%  (local cell routing dominated by pins)
+Layer 2 (M2):  9.35%  (primary signal routing)
+Layer 3 (M3): 12.73%  (primary signal routing)
+Layer 4 (M4):  0.45%  (power straps / long signals)
+Layer 5 (M5):  1.05%  (power straps / long signals)
+Layer 6 (M6):  0.00%  (not used)
+
+Note: M1 shows 0% due to wire-length metric methodology; M2/M3 carry
+the majority of signal routing. M4/M5 used for power grid straps.
+
+================================================================================
+VIA USAGE
+================================================================================
+Total vias: 907
+Via types: VIA1..VIA5 (M1-M2 through M5-M6)
+Via distribution: Predominantly VIA1/VIA2 for local cell routing;
+VIA3/VIA4 for power grid connections.
+
+================================================================================
+ROUTING CONGESTION
+================================================================================
+Global routing congestion: None (design is small, 525 cells)
+No overflow iterations needed in FastRoute.
+No detailed routing congestion hotspots reported.
+
+Local congestion indicators:
+  - No max-capacitance violations
+  - No max-transition violations
+  - Max fanout violations: 2 (clk/rst high-fanout nets; mitigated by CTS)
+
+================================================================================
+ROUTING QUALITY METRICS
+================================================================================
+Total wire length (HPWL): 2,244 µm
+Total vias: 907
+Wire bits: 1,420
+Public wire bits: 1,318
+Wires count: 340
+Public wires: 242
+
+Average wire length per net: ~13 µm
+Via density: ~5.2 vias/net
+
+================================================================================
+ROUTING LOGS (key steps)
+================================================================================
+Step 15 (Global Route Resizer): PASS
+Step 16 (Resizer Design STA): PASS
+Step 17 (Global Route): PASS
+Step 18 (Detailed Route Resizer): PASS
+Step 19 (Detailed Route): PASS
+Step 20 (Post-Route STA): PASS
+Step 21 (RCX Extraction): PASS
+Step 22-26 (Signoff STA multi-corner): PASS
+
+================================================================================
+FINAL ROUTING STATUS
+================================================================================
+Global Routing: PASS
+Detailed Routing: PASS
+DRC: PASS (0 violations)
+Antenna: PASS (0 violations)
+All nets routed: PASS (173/173)
+No unrouted nets
+No routing violations
+
+OVERALL ROUTING STATUS: PASS

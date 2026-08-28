@@ -1,0 +1,112 @@
+================================================================================
+THERMAL / HEAT-SIGNATURE ANALYSIS REPORT
+================================================================================
+Design: ARM_SoC soc_top (RV32IM SoC)
+PDK: sky130A / sky130_fd_sc_hd
+Run: RUN_2026.07.04_05.04.48 (completed signoff)
+
+================================================================================
+THERMAL ANALYSIS AVAILABILITY
+================================================================================
+Status: NO ACTUAL THERMAL SIMULATION PERFORMED
+
+The OpenLane/OpenROAD flow (version ff5509f) used for this project does NOT
+include a thermal simulation or temperature analysis step. The standard
+OpenLane flow performs:
+
+  - Static IR drop analysis (PDNSim) - AVAILABLE
+  - Power-grid connectivity - AVAILABLE
+  - Dynamic power estimation (STA power reports) - AVAILABLE
+  - Thermal/heat-signature simulation - NOT AVAILABLE
+
+No third-party thermal solver (e.g., Ansys Icepak, Cadence Celsius,
+Mentor FloTHERM) was invoked as part of this flow.
+
+================================================================================
+AVAILABLE POWER / IR-DROP DATA (Genuine)
+================================================================================
+Source: OpenROAD PDNSim static IR drop analysis (signoff step 32)
+
+Power rails:
+  VPWR (VDD): 1.8 V nominal
+  VGND (VSS): 0.0 V nominal
+
+Static IR Drop Results (reports/signoff/32-irdrop-VPWR.rpt,
+                        reports/signoff/32-irdrop-VGND.rpt):
+
+VPWR (VDD) worst-case drop:
+  Max voltage drop: ~0.00003 V (30 µV)
+  Drop percentage: 0.0027% of 1.8 V
+  Worst location: _240__12, _240__4, _240_ at (62.27, 68) µm
+
+VGND (VSS) worst-case bounce:
+  Max ground bounce: ~38 µV (0.000038 V)
+  Worst location: _240__12, _240__4 at (62.27, 68) µm
+
+Assumptions:
+  - No user-provided activity/load file (SAIF/VCD) provided
+  - Default switching activity factors used (0.1 combinational, 0.05 seq)
+  - Standard-cell library default leakage/dynamic current models
+
+Power-grid adequacy:
+  PDN mesh (M4/M5 straps, 15.6/16.2 µm pitch) over core
+  65×62 µm area is heavily over-provisioned for 525-cell design.
+  All nodes well within 5% IR drop spec.
+
+================================================================================
+POWER ESTIMATES (from STA power reports)
+================================================================================
+Signoff STA power report (rcx_nom, typical corner):
+  reports/signoff/30-mca/rcx_nom_sta.power.rpt
+
+Estimated power (typical corner, no activity file):
+  Internal power:  ~0.000122 µW
+  Switching power: ~0.0442 µW
+  Leakage power:   ~1.33 nW
+  Total:           ~0.0443 µW (extremely low - stub design)
+
+Note: These are minimum-estimate defaults with no switching activity.
+Actual power with real workload would be orders of magnitude higher.
+
+================================================================================
+POWER DENSITY ESTIMATION (Informational Only)
+================================================================================
+Core area: 64.86 × 62.56 µm = 4,057 µm² = 0.00406 mm²
+Estimated total power (stub): ~0.044 µW
+Power density: ~10.8 µW/mm² (negligible)
+
+Projection for full RTL (95k cells, ~2.9 mm² core):
+  Estimated dynamic power @ 50 MHz: ~100-500 µW (educated guess)
+  Projected power density: ~35-170 µW/mm²
+  This is still VERY LOW for sky130 (typical designs run at 10-100 mW/mm²)
+
+No thermal hotspots can be identified from available data.
+
+================================================================================
+THERMAL SIMULATION RECOMMENDATIONS
+================================================================================
+To perform actual thermal analysis, the following would be required:
+
+1. Activity file (SAIF from gate-level simulation with real workload)
+2. Thermal solver integration (e.g., OpenROAD-PDNSim + thermal module,
+   or export to Ansys/Cadence thermal tools)
+3. Package/PCB thermal model (Rth_jc, Rth_ca)
+4. Ambient temperature specification
+5. Power-map generation from activity-annotated netlist
+
+None of the above were performed in this flow.
+
+================================================================================
+CONCLUSION
+================================================================================
+No actual thermal/heat-signature analysis was performed.
+No temperature estimates or thermal hotspots can be reported.
+
+Available genuine data:
+  - Static IR drop: PASS (30 µV VDD drop, 38 µV VSS bounce)
+  - Power-grid connectivity: PASS
+  - Power estimation (defaults): ~0.044 µW total (stub)
+
+All power-grid/IR-drop checks PASS.
+
+Thermal analysis: NOT PERFORMED (not available in flow)

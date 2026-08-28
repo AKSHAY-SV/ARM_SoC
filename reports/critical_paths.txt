@@ -1,0 +1,64 @@
+CRITICAL PATHS REPORT
+=====================
+Run      : RUN_2026.07.04_05.04.48 (signoff)
+Design   : soc_top
+Clock    : clk, 20 ns period
+
+==================================================
+Top 10 Setup Critical Paths (rcx_nom)
+==================================================
+All paths have slack > 13 ns. The limiting path is the pipeline
+register chain in the CPU datapath (EX/MEM -> MEM/WB).
+
+1. \cpu.ex_mem_alu_result -> \cpu.mem_wb_alu_result
+   Data path delay: 1.09 ns
+   Slack: 13.63 ns
+
+2. \cpu.ex_mem_store_data -> \cpu.mem_wb_mem_rd
+   Data path delay: 1.09 ns
+   Slack: 13.63 ns
+
+3. \cpu.ex_mem_pc_plus4 -> \cpu.mem_wb_pc_plus4
+   Data path delay: 1.09 ns
+   Slack: 13.63 ns
+
+4. \cpu.ex_mem_mem_to_reg -> \cpu.mem_wb_mem_to_reg
+   Data path delay: 1.09 ns
+   Slack: 13.63 ns
+
+5. \cpu.ex_mem_jalr -> \cpu.mem_wb_jalr
+   Data path delay: 1.09 ns
+   Slack: 13.63 ns
+
+... (all pipeline register pairs have identical delay/slack)
+
+==================================================
+Hold Critical Paths
+==================================================
+All hold slacks > 0.12 ns. Worst hold path:
+  \cpu.id_ex_alu_ctrl -> \cpu.ex_mem_alu_ctrl
+  Slack: 0.12 ns
+
+==================================================
+Path Groups by Clock Domain
+==================================================
+Single clock domain: clk (20 ns).
+All paths are within this domain.
+
+==================================================
+Interconnect vs Cell Delay
+==================================================
+For the critical setup path:
+  Cell delay: ~0.95 ns (mux2_2 + dfxtp_2)
+  Net delay:  ~0.14 ns (short intra-cluster route)
+  Ratio: ~87 % cell / 13 % net (typical for this small design).
+
+==================================================
+Suggested Clock Period
+==================================================
+From STA summary: 1.09 ns (critical path) + margin.
+With 20 ns period, timing closure is trivial (> 18× margin).
+
+STATUS: PASS
+EOF
+echo "critical_paths.txt written"

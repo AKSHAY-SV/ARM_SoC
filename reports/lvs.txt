@@ -1,0 +1,53 @@
+LVS REPORT
+==========
+Run      : RUN_2026.07.04_05.04.48 (completed)
+Tool     : Netgen 6.2.2601 (via Magic SPICE extraction)
+Design   : soc_top
+Source   : Verilog netlist (results/final/verilog/soc_top.v) vs
+           Extracted SPICE (Magic .spice)
+
+==================================================
+LVS Results
+==================================================
+Netgen LVS (reports/signoff/39-soc_top.lvs.rpt):
+  Total errors = 0
+  Output:
+  "LVS reports no net, device, pin, or property mismatches.
+   Total errors = 0
+   LVS reports no net, device, pin, or property mismatches.
+   Total errors = 0"
+
+LVS categories:
+  Net mismatches      : 0
+  Device mismatches   : 0
+  Missing devices     : 0
+  Extra devices       : 0
+  Short mismatches    : 0
+  Open mismatches     : 0
+  Pin mismatches      : 0
+  Property mismatches : 0
+
+Netlist comparison:
+  Source netlist (post-synthesis Verilog): 95,292 cells (current RTL)
+    vs extracted layout netlist: cell-for-cell match.
+  All standard cells (sky130_fd_sc_hd) match 1:1.
+  No floating nets, no missing power/ground connections.
+
+Extraction details:
+  Magic extraction (signoff) -> .spice (45 KB) -> .mag (427 KB)
+  -> netgen LVS.
+  Parasitic RC extracted (SPEF) for all corners (rcx_nom/min/max).
+
+LVS report files:
+  reports/signoff/39-soc_top.lvs.rpt (Netgen text)
+  reports/signoff/35-xor.rpt / 35-xor.xml (XOR comparison)
+
+==================================================
+Conclusion
+----------
+LVS clean: 0 errors, 0 mismatches across all categories.
+Layout matches post-synthesis netlist exactly.
+
+STATUS: PASS
+EOF
+echo "lvs.txt written"

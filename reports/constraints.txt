@@ -1,0 +1,64 @@
+CONSTRAINTS REPORT
+==================
+Run      : RUN_2026.07.04_05.04.48 (signoff)
+Design   : soc_top
+Tool     : OpenROAD OpenSTA
+
+==================================================
+SDC Constraints File
+==================================================
+File: results/final/sdc/soc_top.sdc
+Contents (verbatim):
+  create_clock -name clk -period 20.000 [get_ports clk]
+
+==================================================
+Constraint Completeness Assessment
+==================================================
+Defined:
+  [X] Clock definition (clk, 20 ns)
+  [ ] Input delays (none)
+  [ ] Output delays (none)
+  [ ] Clock uncertainty (default 5% for hold)
+  [ ] Clock latency (derived from CTS)
+  [ ] Clock skew (derived from CTS)
+  [ ] Generated clocks (none)
+  [ ] False paths (none)
+  [ ] Multicycle paths (none)
+  [ ] Max/min delay (none)
+  [ ] Case analysis (none)
+  [ ] Clock gating checks (none)
+
+==================================================
+Missing / Recommended Constraints for Production
+==================================================
+1. Input/output delays for APB peripheral pins:
+   - set_input_delay -clock clk -max 5.0 [get_ports {gpio_in[*]}]
+   - set_output_delay -clock clk -max 5.0 [get_ports {gpio_out[*]}]
+   - UART/SPI/TIMER pins similar.
+
+2. Clock uncertainty for board-level jitter:
+   - set_clock_uncertainty -setup 0.5 [get_clocks clk]
+   - set_clock_uncertainty -hold  0.2 [get_clocks clk]
+
+3. Clock latency (if source-synchronous):
+   - set_propagated_clock [get_clocks clk] (already propagated)
+
+4. False paths / case analysis:
+   - Reset synchronizer async paths (if needed)
+   - APB bus cross-clock-domain paths (if any)
+
+5. Multicycle paths:
+   - APB bus transactions (multi-cycle bus)
+
+==================================================
+Current Constraint Adequacy for This Design
+==================================================
+For the current verification scope (internal logic timing at 50 MHz),
+the single create_clock constraint is sufficient — the critical path
+(1.09 ns) is far below the 20 ns period. All internal timing checks
+pass with > 18 ns slack. The missing I/O constraints only affect
+board-level integration timing, not internal logic correctness.
+
+STATUS: ADEQUATE FOR INTERNAL TIMING CLOSURE
+EOF
+echo "constraints.txt written"

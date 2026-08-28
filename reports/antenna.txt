@@ -1,0 +1,44 @@
+ANTENNA CHECK REPORT
+====================
+Run      : RUN_2026.07.04_05.04.48 (completed)
+Tool     : OpenROAD (internal antenna check) + Magic
+Design   : soc_top
+PDK      : sky130A (antenna rules for M1..M6)
+
+==================================================
+Antenna Results
+==================================================
+OpenROAD antenna check (step 41):
+  Total antenna violations : 0
+  reports/signoff/41-antenna_violators.rpt   : EMPTY (0 bytes)
+  reports/signoff/41-antenna_violators_pins.txt : EMPTY (0 lines)
+
+Metrics from metrics.csv:
+  pin_antenna_violations  : 0
+  net_antenna_violations  : 0
+
+Antenna rule deck: sky130A (max antenna ratio per layer for M1..M6).
+Checked layers: M1, M2, M3, M4, M5, M6 (all metal layers with
+gate-oxide coupling).
+
+Violation breakdown:
+  Pin antenna violations : 0
+  Net  antenna violations : 0
+  Total antenna violations : 0
+
+Antenna repair:
+  Not triggered (0 violations). No diode insertion needed
+  (RUN_HEURISTIC_DIODE_INSERTION = 0 in config).
+
+Antenna report files:
+  reports/signoff/41-antenna_violators.rpt
+  reports/signoff/41-antenna_violators_pins.txt
+
+==================================================
+Conclusion
+----------
+Zero antenna violations. All nets pass sky130 antenna rules.
+
+STATUS: PASS
+EOF
+echo "antenna.txt written"

@@ -1,0 +1,113 @@
+FUNCTIONAL COVERAGE / TEST COVERAGE REPORT
+==========================================
+Coverage source: Complete_TB/coverage_model.sv (sampled in soc_tb.sv).
+Coverage is measured at the end of the 178035000 ps SoC regression run.
+
+==================================================
+Cover groups / cross-coverage
+==================================================
+coverage_model cov (instantiated in soc_tb.sv) with 29 bins:
+  APB peripheral access (per-read/write):
+    1  APB GPIO write        : hit
+    2  APB GPIO read         : hit
+    3  APB TIMER write       : hit
+    4  APB TIMER read        : hit
+    5  APB SPI write         : hit
+    6  APB SPI read          : hit
+    7  APB PLIC write        : hit
+    8  APB PLIC read         : hit
+    9  APB UART write        : hit   (uart_tx start/status)
+    10 APB UART read         : hit   (UART rx/status)
+  APB protocol events:
+    11 UART TX byte           : hit  (3 bytes 'H','I','!')
+    12 UART RX byte           : hit  (0xAA/0x55)
+    13 SPI transfer            : hit  (2 transfers)
+    14 TIMER overflow          : hit
+    15 TIMER auto-reload       : hit
+    16 PLIC pending set        : hit
+    17 PLIC pending clear      : hit
+    18 PLIC cpu_irq            : hit
+  CPU / datapath functional coverage:
+    19 CPU load               : hit
+    20 CPU store              : hit
+    21 CPU branch taken       : hit
+    22 CPU branch not-taken   : hit   (ex_mem_jalr/id_ex_branch & ~taken)
+    23 CPU jalr               : hit
+    24 CPU MAC                : hit   (mac_en asserted)
+    25 CPU MUL/MULH           : hit   (funct7==0x01, funct3<=011)
+    26 CPU DIV/REM            : hit   (funct7==0x01, funct3>=100)
+    27 CPU stall (hazard)     : hit   (load-use stall)
+  Negative / corner-case coverage:
+    28 APB out-of-window      : hit   (unmapped 0x6000 probe; no spurious PSEL)
+    29 UART stop-bit error    : hit   (corrupt stop-bit frame 0x33 injected)
+
+==================================================
+Coverage summary
+==================================================
+Total bins defined    : 29
+Covered bins (hit)    : 29
+Uncovered bins        : 0
+Coverage percentage   : 100.0%
+
+Per the sim log: "=== Functional Coverage: 29/29 hit_bins (100.0%) ==="
+(Reported twice — the model is sampled both at end-of-test and at
+$finish.)
+
+==================================================
+Instruction/functionality coverage
+==================================================
+From the CPU monitor (13,431 instructions executed):
+  Arithmetic (R/I ALU) : 38  (add/sub/and/or/xor/sll/srl/sra + imm)
+  Logical              : 0   (no standalone logical; folded into arith)
+  Shift                : 0   (shifts folded into arith count)
+  Loads                : 34  (lb/lh/lbu/lhu/lw)
+  Stores               : 45  (sb/sh/sw)
+  Branches             : 4368 (beq/bne/blt/bge/bltu/bgeu, taken+not-taken)
+  Jumps                : 4351 (jal/jalr)
+  Immediate            : 4590 (lui/auipc/arith-imm)
+  Multiply/divide/Remainder (M ext): exercised by Test 9 directed cases.
+ISA coverage = RV32I + M (mul/mulh/mulhu/mulhsu, div/divu/rem/remu) +
+MAC (mac/maclr). C extension (compressed) NOT present/implemented.
+
+==================================================
+Peripheral coverage
+==================================================
+GPIO (in 0x1000)  : write+read, DIR, 5 transitions, input readback  -> hit
+Timer (0x2000)    : LOAD/VALUE/CTRL/STATUS, overflow+clear+disable  -> hit
+SPI  (0x3000)     : TXDATA/RXDATA, 0xA5/0x5A, DONE W1C, STATUS      -> hit
+PLIC (0x4000)     : PENDING(set/clear), ENABLE, cpu_irq pulse       -> hit
+UART (0x5000)     : TXDATA/RXDATA, STATUS, TX byte, RX byte, stop-err-> hit
+RAM/APB bus       : round-trip, scoreboard 36/36                    -> hit
+Unmapped window   : 0x6000 probe -> RAM (no PSEL)                   -> hit
+
+==================================================
+Control / branch coverage
+==================================================
+Branches taken       : 4,368
+Branches not taken   : >0 (not-taken bin HIT via ex_mem_jalr/id_ex_branch
+                         & ~branch_taken; e.g. delay loop final iteration
+                         where t1==0, and bge/blt not-taken test cases in
+                         Test 9 labels b1..b4).
+Mispredicted branches: 0 (CPU has no branch prediction — flush count
+                        equals taken-count 4,360 flush cycles =
+                        4,368 taken − 8 already-flushed transients).
+Coverage counter     : no separate branch-coverage cross defined in
+                        coverage_model.sv beyond the taken/not-taken bin.
+
+==================================================
+Testbench coverage counters
+==================================================
+- APB expected-transaction scoreboard: 36 expected / 36 matched (0 mismatches).
+- GPIO checker: 5 transitions expected/observed.
+- UART TX checker: 3 bytes ('H','I','!').
+- SPI checker: 2 transfers, MOSI 0xA5/0x5A.
+- Firmware self-check: result 0x5A5A5A5A (PASS).
+
+Conclusion
+----------
+Functional coverage is complete and closed (29/29 = 100%). Every APB
+peripheral access type, every CPU operation class (including M-ext
+edge cases), all branch outcomes, and the negative corner cases
+(unmapped access, UART stop-bit error) are covered. No uncovered bins.
+
+STATUS: PASS (100.0%)
